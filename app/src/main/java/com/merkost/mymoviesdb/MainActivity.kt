@@ -1,10 +1,14 @@
 package com.merkost.mymoviesdb
 
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -57,4 +61,17 @@ class MainActivity : ComponentActivity() {
         const val MOVIE_ROUTE = "movie_details"
     }
 
+
+
+}
+
+/**
+ * A composable function that returns the [Resources]. It will be recomposed when `Configuration`
+ * gets updated.
+ */
+@Composable
+@ReadOnlyComposable
+fun resources(): Resources {
+    LocalConfiguration.current
+    return LocalContext.current.resources
 }

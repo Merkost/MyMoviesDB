@@ -77,16 +77,16 @@ data class GenreList(val key: String?, val value: String?)
 data class LanguageList(val key: String?, val value: String?)
 
 data class Similars(
-    val id: String?,
-    val title: String?,
-    val fullTitle: String?,
-    val year: String?,
-    val image: String?,
-    val plot: String?,
-    val directors: String?,
-    val stars: String?,
-    val genres: String?,
-    val imDbRating: String?
+    val id: String = "",
+    val title: String = "",
+    val fullTitle: String = "",
+    val year: String = "",
+    val image: String = "",
+    val plot: String = "",
+    val directors: String = "",
+    val stars: String = "",
+    val genres: String = "",
+    val imDbRating: String = ""
 )
 
 data class StarList(val id: String?, val name: String?)

@@ -12,14 +12,14 @@ interface MovieDatabaseApiService {
 
     @GET("Top250Movies/{api_key}")
     suspend fun getTop250Movies(
-        @Path("api_key") apiKey: String = "k_6gmt9cas",
+        @Path("api_key") apiKey: String = "k_2ss58a5f",
 
     ): MoviesResult
 
     @GET("title/{api_key}/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: String,
-        @Path("api_key") apiKey: String = "k_6gmt9cas",
+        @Path("api_key") apiKey: String = "k_2ss58a5f",
     ): Movie
 
 }

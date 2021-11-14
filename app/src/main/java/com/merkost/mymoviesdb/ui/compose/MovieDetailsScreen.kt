@@ -127,9 +127,7 @@ fun MovieDetailsScreen(navController: NavController, movieId: String?) {
         sheetPeekHeight = 470.dp,
     ) {
         if (selectedMovie.value == null) {
-            Surface(color = MaterialTheme.colors.background) {
-                Greeting("Android")
-            }
+            EmptyView()
         } else {
             movie.value = selectedMovie.value
             CoilImage(

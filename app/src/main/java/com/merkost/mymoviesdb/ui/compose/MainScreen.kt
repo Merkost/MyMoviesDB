@@ -2,9 +2,7 @@ package com.merkost.mymoviesdb.ui.compose
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
@@ -12,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -37,11 +36,8 @@ fun MainScreen(navController: NavController) {
 
 
     if (moviesList.value.isNullOrEmpty()) {
-        Surface(color = MaterialTheme.colors.background) {
-            Greeting("Android")
-        }
+        EmptyView()
     } else {
-
         LazyVerticalGrid(cells = GridCells.Fixed(2),
             contentPadding = PaddingValues(4.dp),) {
 
@@ -50,6 +46,18 @@ fun MainScreen(navController: NavController) {
                     navController.navigate("${MainActivity.MainDestinations.MOVIE_ROUTE}/${it.id}")
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun EmptyView() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,) {
+            Text("Loading movies")
+            Spacer(modifier = Modifier.size(8.dp))
+            CircularProgressIndicator()
         }
     }
 }

@@ -21,7 +21,10 @@ class MoviesRepositoryRetrofitImpl: MoviesRepository {
     }
 
 
-    override suspend fun getMovieDetails(movieId: String) = getService().getMovieDetails(movieId)
+    override suspend fun getMovieDetails(movieId: String) = flow {
+        val movie = getService().getMovieDetails(movieId)
+        emit(movie)
+    }
 
     private fun getService(): MovieDatabaseApiService {
         return createRetrofit().create(MovieDatabaseApiService::class.java)

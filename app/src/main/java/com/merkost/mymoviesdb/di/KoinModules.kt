@@ -15,5 +15,5 @@ val application = module {
 
 val mainActivity = module {
     viewModel { MainViewModel(get()) }
-    viewModel { MovieDetailsViewModel() }
+    viewModel { MovieDetailsViewModel(get()) }
 }

@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.merkost.mymoviesdb.MainActivity
 import com.merkost.mymoviesdb.model.entity.Top250DataDetail
 import com.merkost.mymoviesdb.viewmodels.MainViewModel
 import com.skydoves.landscapist.ShimmerParams
@@ -46,7 +47,7 @@ fun MainScreen(navController: NavController) {
 
             items(moviesList.value) {
                 MainMovieItem(it) {
-
+                    navController.navigate("${MainActivity.MainDestinations.MOVIE_ROUTE}/${it.id}")
                 }
             }
         }
